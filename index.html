@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="header">
+        <div class="row">
+          <div class="container">
+            <div class="col-sm-12 col-md-12 col-lg-12 site_title">
+              <h1 class="text_center">Make your site.</h1>
+              <p class="text_center">We can make site for you.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="tabs">
+          <a v-on:click="activetab=1" v-bind:class="[ activetab === 1 ? 'active' : '' ]">Welcome</a>
+          <a v-on:click="activetab=2" v-bind:class="[ activetab === 2 ? 'active' : '' ]">About us</a>
+          <a v-on:click="activetab=3" v-bind:class="[ activetab === 3 ? 'active' : '' ]">Portfolio</a>
+          <a v-on:click="activetab=4" v-bind:class="[ activetab === 4 ? 'active' : '' ]">Contact us</a>
+        </div>
+        <div v-if="activetab === 1" class="tabcontent">
+          <div class="row">
+            <div class="col-ms-12 col_md-6 col-lg-6">
+              <h1 class="text_center">Bild your site</h1>
+              <table>
+                <tr>
+                  <th>Lending page</th>
+                  <th>Last Name</th>
+                  <th>Points</th>
+                </tr>
+                <tr>
+                  <td>product catalog</td>
+                  <td>Griffin</td>
+                  <td>$100</td>
+                </tr>
+                <tr>
+                  <td>online shop</td>
+                  <td>Griffin</td>
+                  <td>$150</td>
+                </tr>
+                <tr>
+                  <td>online shop</td>
+                  <td>Swanson</td>
+                  <td>$300</td>
+                </tr>
+                <tr>
+                  <td>social netvirc</td>
+                  <td>Brown</td>
+                  <td>$250</td>
+                </tr>
+              </table>
+            </div>
+            <div class="col-ms-12 col_md-6 col-lg-6">
+              <div class="row">
+                <div class="site_image">
+                  <img src="images/image.png" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div v-if="activetab === 2" class="tabcontent">
+          <ol>
+            <todo-item
+              v-for="item in groceryList"
+              v-bind:todo="item"
+              v-bind:key="item.id"
+            ></todo-item>
+          </ol>
+          <hr>
+          <table_item 
+            v-for="name in firstAccountNames"
+            v-bind:table="name"
+            v-bind:key="name.id"
+          ></table_item>
+          <!-- <div id="demo">
+            <ul>v-for="name in firstAccountNames"
+              <li >
+                {{ name }}
+              </li>
+            </ul>
+          </div> -->
+        </div>
+        <div v-if="activetab === 3" class="tabcontent">
+            Content for tab three
+        </div>
+        <div v-if="activetab === 4" class="tabcontent">
+            Content for tab three 4444
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript" src="js/script.js" defer></script>
+    <script src="./data.json"></script>
+  </body>
+</html>
